@@ -1,0 +1,88 @@
+
+<section class="hero">
+  <div class="hero-text">
+    <h2>Welcome to BookTracker 📚</h2>
+    <p>A minimalist app to help you remember the books you've read, your notes, and what you learned.</p>
+    <a href="#book-section" class="cta-button">View My Books</a>
+  </div>
+</section>
+
+<section class="form-section" id="book-section">
+  <h3>Add a New Book</h3>
+  <form class="book-form" action="/add" method="POST">
+    <input type="text" name="title" placeholder="Title" required>
+    <input type="text" name="author" placeholder="Author" required>
+    <input type="date" name="read_date" required>
+    <input type="number" name="rating" placeholder="Rating (1-10)" min="1" max="10" required>
+    <input type="text" name="cover_id" placeholder="Cover URL (optional)">
+    <textarea name="review" placeholder="What did you learn or love?"></textarea>
+    <button type="submit">Add Book</button>
+  </form>
+</section>
+
+<section class="book-list">
+  <% books.forEach(book => { %>
+    <div class="book-card">
+      <div class="cover">
+        <% if (book.cover_id) { %>
+          <img src="<%= book.cover_id %>" alt="<%= book.title %>">
+        <% } else { %>
+          <div class="placeholder-cover">No Cover</div>
+        <% } %>
+      </div>
+      <div class="book-details">
+        <h3><%= book.title %></h3>
+        <p>by <%= book.author %></p>
+        <p>Read on: <%= book.read_date.toISOString().split('T')[0] %></p>
+        <p>Rating: <%= book.rating %>/10</p>
+        <p class="review"><%= book.review %></p>
+        <div class="actions">
+          <form action="/delete/<%= book.id %>" method="POST">
+            <button class="delete-btn">Delete</button>
+          </form>
+          <form action="/edit/<%= book.id %>" method="GET" style="display:inline;">
+            <button class="edit-btn">Edit</button>
+          </form> 
+        </div>
+      </div>
+    </div>
+  <% }) %>
+</section>
+</body>
+<style>
+    .hero {
+  background: linear-gradient(135deg, #dbeafe, #e0f2fe);
+  padding: 3rem 1rem;
+  text-align: center;
+  border-radius: 0 0 20px 20px;
+  animation: fadeIn 1s ease;
+}
+
+.hero-text h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #1e3a8a;
+  margin-bottom: 1rem;
+}
+
+.hero-text p {
+  font-size: 1.1rem;
+  color: #374151;
+  margin-bottom: 1.5rem;
+}
+
+.cta-button {
+  background-color: #2563eb;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border-radius: 10px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+.cta-button:hover {
+  background-color: #1d4ed8;
+  transform: scale(1.05);
+}
+
+</style>

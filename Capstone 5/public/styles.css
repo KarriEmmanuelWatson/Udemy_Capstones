@@ -1,0 +1,217 @@
+/* Import Poppins */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(-45deg, #e0f7fa, #f1f8e9, #e8f5e9, #e3f2fd);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  color: #333;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+/* Background animation */
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+  
+  a {
+    color: #0070f3;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  a:hover {
+    color: #0051a3;
+  }
+  
+  header {
+    background: hsl(181, 66%, 45%);
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    border-bottom: 1px solid #eee;
+  }
+  header h1 a {
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: #222;
+  }
+  
+  nav {
+    margin-top: 0.5rem;
+  }
+  nav a {
+    margin: 0 1rem;
+    font-weight: 500;
+    font-size: 1rem;
+  }
+  
+  /* Main layout */
+  main {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+  }
+  
+  /* Form Section */
+  .form-section {
+    background: #ffffffcc;
+    backdrop-filter: blur(8px);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  .book-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  
+  .book-form input,
+  .book-form textarea,
+  .book-form button {
+    padding: 0.75rem;
+    font-size: 1rem;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    outline: none;
+    transition: all 0.2s ease;
+  }
+  
+  .book-form textarea {
+    grid-column: span 2;
+    min-height: 100px;
+    resize: vertical;
+  }
+  
+  .book-form input:focus,
+  .book-form textarea:focus {
+    border-color: #0070f3;
+    box-shadow: 0 0 0 2px #0070f330;
+  }
+  
+  .book-form button {
+    background-color: #0070f3;
+    color: white;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    grid-column: span 2;
+  }
+  .book-form button:hover {
+    background-color: #0051a3;
+  }
+  
+  .cancel-btn {
+    display: inline-block;
+    margin-top: 0.5rem;
+    padding: 0.5rem 1rem;
+    color: #555;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.9rem;
+  }
+  .cancel-btn:hover {
+    background-color: #eee;
+  }
+  
+  /* Book Card List */
+  .book-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    animation: fadeIn 0.6s ease;
+  }
+  
+  .book-card {
+    display: flex;
+    gap: 1rem;
+    background: #ffffffd9;
+    backdrop-filter: blur(6px);
+    padding: 1rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .book-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  }
+  
+  .cover img {
+    width: 110px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+  
+  .placeholder-cover {
+    width: 110px;
+    height: 160px;
+    background: #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    color: #666;
+    border-radius: 10px;
+  }
+  
+  .book-details {
+    flex: 1;
+  }
+  .book-details h3 {
+    margin: 0 0 0.25rem;
+  }
+  .book-details p {
+    margin: 0.3rem 0;
+  }
+  .review {
+    font-style: italic;
+    color: #444;
+    margin-top: 0.5rem;
+  }
+  
+  /* Edit/Delete Actions */
+  .actions {
+    margin-top: 1rem;
+    display: flex;
+    gap: 1rem;
+  }
+  .actions button {
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background: #f2f2f2;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+  .actions button:hover {
+    background: #e0e0e0;
+  }
+  .delete-btn {
+
+    background: #242424;
+    color: black;
+    border: none;
+  }
+  .delete-btn:hover {
+    background: #d60000;
+  }
+  
+  /* Footer */
+  footer {
+    text-align: center;
+    margin-top: 3rem;
+    padding: 1rem;
+    font-size: 0.9rem;
+    color: #888;
+  }
+  

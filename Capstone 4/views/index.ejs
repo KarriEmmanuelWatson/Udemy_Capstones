@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>iTunes Music Search</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>🎵 iTunes Music Search</h1>
+
+    <form action="/search" method="POST">
+      <input type="text" name="term" placeholder="Enter artist or song name..." required>
+      <button type="submit">Search</button>
+    </form>
+
+    <% if (error) { %>
+      <p class="error"><%= error %></p>
+    <% } %>
+
+    <div class="results">
+      <% if (results) { %>
+        <% results.forEach(song => { %>
+          <div class="card">
+            <img src="<%= song.artworkUrl100 %>" alt="Album Art">
+            <div class="info">
+              <h3><%= song.trackName %></h3>
+              <p><strong>Artist:</strong> <%= song.artistName %></p>
+              <p><strong>Album:</strong> <%= song.collectionName %></p>
+              <audio controls>
+                <source src="<%= song.previewUrl %>" type="audio/mpeg">
+                Your browser does not support the audio element.
+              </audio>
+            </div>
+          </div>
+        <% }) %>
+      <% } %>
+    </div>
+  </div>
+  <script>
+    const audios = document.querySelectorAll('audio');
+
+    audios.forEach(audio => {
+      audio.addEventListener('play', () => {
+        audios.forEach(other => {
+          if (other !== audio) other.pause();
+        });
+      });
+    });
+  </script>
+</body>
+</html>
